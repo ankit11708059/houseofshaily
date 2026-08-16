@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House of Shaily — A space for comedy, dance and theatre</title>
+<meta name="description" content="House of Shaily is a space in Bangalore where you can organise comedy nights, dance choreography sessions and theatre workshops. The room is yours.">
+<link rel="canonical" href="https://houseofshaily.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="House of Shaily">
+<meta property="og:title" content="House of Shaily — A space for comedy, dance and theatre">
+<meta property="og:description" content="A space where you can organise comedy nights, dance choreography and theatre workshops. The room is yours.">
+<meta property="og:url" content="https://houseofshaily.com/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231a1512'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23e8a04a' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "House of Shaily",
+  "description": "A space for comedy nights, dance choreography and theatre workshops.",
+  "url": "https://houseofshaily.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bangalore",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  }
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+
+  :root {
+    --ink:        #14100e;
+    --ink-soft:   #1e1815;
+    --cream:      #f4ede4;
+    --cream-dim:  #c9bcae;
+    --cream-faint:#8a7d70;
+    --amber:      #e8a04a;
+    --wa:         #25d366;
+    --line:       rgba(244, 237, 228, 0.14);
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Warm stage-light wash behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -10%, rgba(232, 160, 74, 0.16), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 85% 100%, rgba(232, 160, 74, 0.06), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---- Masthead ---- */
+  header {
+    padding: 40px 0 0;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 15px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin: 0;
+    font-weight: 400;
+  }
+  .wordmark .of {
+    color: var(--cream-faint);
+    font-style: italic;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+  }
+
+  /* ---- Hero ---- */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 0 64px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 28px;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+    max-width: 16ch;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    color: var(--cream-dim);
+    max-width: 46ch;
+    margin: 0 0 56px;
+  }
+
+  /* ---- What you can make here ---- */
+  .uses {
+    border-top: 1px solid var(--line);
+    margin: 0 0 44px;
+    padding: 0;
+    list-style: none;
+  }
+  .uses li {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .uses .num {
+    font-family: var(--display);
+    font-size: 13px;
+    color: var(--cream-faint);
+    min-width: 28px;
+    font-variant-numeric: tabular-nums;
+  }
+  .uses .name {
+    font-family: var(--display);
+    font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+    line-height: 1.25;
+  }
+  .uses .note {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--cream-faint);
+    margin-top: 4px;
+  }
+
+  .and-more {
+    color: var(--cream-faint);
+    font-size: 0.98rem;
+    margin: 0 0 52px;
+    font-style: italic;
+  }
+
+  /* ---- CTA ---- */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    background: var(--wa);
+    color: #06251a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 999px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.24);
+  }
+  .cta:hover, .cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.34);
+  }
+  .cta:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+  .wa-mark {
+    width: 21px;
+    height: 21px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .cta-note {
+    margin: 18px 0 0;
+    font-size: 0.92rem;
+    color: var(--cream-faint);
+  }
+  .cta-note a { color: var(--cream-dim); }
+
+  /* ---- Footer ---- */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--line);
+    padding: 26px 0 36px;
+    font-size: 0.85rem;
+    color: var(--cream-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: space-between;
+  }
+  footer p { margin: 0; }
+
+  @media (max-width: 560px) {
+    header { padding-top: 30px; }
+    main { padding: 48px 0 48px; }
+    .uses li { gap: 14px; padding: 18px 0; }
+    .cta { width: 100%; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+    .cta:hover, .cta:focus-visible { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <p class="wordmark">House <span class="of">of</span> Shaily</p>
+  </header>
+
+  <main>
+    <p class="eyebrow">Bangalore</p>
+
+    <h1>We have a space. <em>Bring what you want to make.</em></h1>
+
+    <p class="lede">
+      A room for the things that only work when people show up in person —
+      whether you're running a night, teaching a room, or rehearsing something new.
+    </p>
+
+    <ol class="uses">
+      <li>
+        <span class="num">01</span>
+        <span class="name">Comedy club
+          <span class="note">Open mics, showcases, test nights for new material</span>
+        </span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span class="name">Dance choreography
+          <span class="note">Rehearsals, classes, practice sessions</span>
+        </span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span class="name">Theatre workshops
+          <span class="note">Readings, training, devising and staging</span>
+        </span>
+      </li>
+    </ol>
+
+    <p class="and-more">…and most things adjacent. If you're not sure it fits, ask.</p>
+
+    <!-- WhatsApp: +91 91109 75470 -->
+    <a class="cta" href="https://wa.me/919110975470?text=Hi%20House%20of%20Shaily%2C%20I%27d%20like%20to%20enquire%20about%20using%20the%20space.%0A%0AEvent%20type%3A%20%0APreferred%20date%3A%20%0AApprox.%20headcount%3A%20" target="_blank" rel="noopener">
+      <svg class="wa-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/>
+      </svg>
+      Enquire on WhatsApp
+    </a>
+
+    <p class="cta-note">
+      Prefer email? <a href="mailto:hello@houseofshaily.com">hello@houseofshaily.com</a>
+    </p>
+    <!-- TODO: add Instagram handle here once confirmed -->
+  </main>
+
+</div>
+
+<div class="wrap">
+  <footer>
+    <p>House of Shaily — Bangalore, India</p>
+    <p>&copy; 2026</p>
+  </footer>
+</div>
+
+</body>
+</html>
