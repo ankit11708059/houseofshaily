@@ -4,22 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>House of Shaily — A space for comedy, dance and theatre</title>
-<meta name="description" content="House of Shaily is a space in Bangalore where you can organise comedy nights, dance choreography sessions and theatre workshops. The room is yours.">
+<meta name="description" content="House of Shaily is a space in Bangalore you can book for comedy nights, dance choreography and theatre workshops. Tell us what you're making and the room is yours.">
 <link rel="canonical" href="https://houseofshaily.com/">
+<meta name="theme-color" content="#0e0b0a">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="House of Shaily">
 <meta property="og:title" content="House of Shaily — A space for comedy, dance and theatre">
-<meta property="og:description" content="A space where you can organise comedy nights, dance choreography and theatre workshops. The room is yours.">
+<meta property="og:description" content="A space in Bangalore for comedy nights, dance choreography and theatre workshops. The room is yours.">
 <meta property="og:url" content="https://houseofshaily.com/">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231a1512'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='58' fill='%23e8a04a' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230e0b0a'/%3E%3Ctext x='50' y='71' font-family='Georgia,serif' font-size='60' fill='%23e8a04a' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "EventVenue",
   "name": "House of Shaily",
   "description": "A space for comedy nights, dance choreography and theatre workshops.",
   "url": "https://houseofshaily.com/",
@@ -34,18 +35,23 @@
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body { margin: 0; }
+  img { max-width: 100%; display: block; }
 
   :root {
-    --ink:        #14100e;
-    --ink-soft:   #1e1815;
-    --cream:      #f4ede4;
-    --cream-dim:  #c9bcae;
-    --cream-faint:#8a7d70;
-    --amber:      #e8a04a;
-    --wa:         #25d366;
-    --line:       rgba(244, 237, 228, 0.14);
+    --ink:       #0e0b0a;
+    --ink-2:     #17110e;
+    --ink-3:     #201814;
+    --cream:     #f5efe6;
+    --cream-dim: #cabcac;
+    --cream-mut: #8d7f71;
+    --amber:     #e8a04a;
+    --amber-lt:  #ffc978;
+    --wa:        #25d366;
+    --line:      rgba(245, 239, 230, 0.12);
+    --line-lt:   rgba(245, 239, 230, 0.22);
+
     --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
@@ -54,262 +60,534 @@
     background: var(--ink);
     color: var(--cream);
     font-family: var(--sans);
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    overflow-x: hidden;
   }
 
-  /* Warm stage-light wash behind everything */
-  body::before {
+  /* ============ Film grain over everything ============ */
+  body::after {
     content: "";
     position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 55% at 50% -10%, rgba(232, 160, 74, 0.16), transparent 70%),
-      radial-gradient(ellipse 60% 50% at 85% 100%, rgba(232, 160, 74, 0.06), transparent 70%);
+    inset: -50%;
     pointer-events: none;
-    z-index: 0;
+    z-index: 100;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .wrap {
+  .shell { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ Nav ============ */
+  .nav {
     position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 940px;
-    margin: 0 auto;
-    padding: 0 24px;
-    flex: 1;
+    z-index: 5;
     display: flex;
-    flex-direction: column;
-  }
-
-  /* ---- Masthead ---- */
-  header {
-    padding: 40px 0 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 0;
+    gap: 16px;
   }
   .wordmark {
     font-family: var(--display);
-    font-size: 15px;
-    letter-spacing: 0.34em;
+    font-size: 14px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--cream);
     margin: 0;
     font-weight: 400;
   }
   .wordmark .of {
-    color: var(--cream-faint);
+    color: var(--cream-mut);
     font-style: italic;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: lowercase;
   }
+  .nav-loc {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-mut);
+    margin: 0;
+  }
 
-  /* ---- Hero ---- */
-  main {
-    flex: 1;
+  /* ============ Hero + stage lights ============ */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    min-height: 92svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 72px 0 64px;
+    padding: 60px 0 70px;
+    overflow: hidden;
   }
 
+  .lights { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .beam {
+    position: absolute;
+    top: -30%;
+    width: 46vw;
+    height: 150%;
+    filter: blur(46px);
+    opacity: 0.5;
+    transform-origin: 50% 0%;
+  }
+  .beam-1 {
+    left: 2%;
+    background: radial-gradient(ellipse 50% 60% at 50% 0%, rgba(232,160,74,0.5), transparent 72%);
+    animation: sway1 13s ease-in-out infinite alternate;
+  }
+  .beam-2 {
+    right: 0%;
+    background: radial-gradient(ellipse 50% 60% at 50% 0%, rgba(255,201,120,0.34), transparent 72%);
+    animation: sway2 17s ease-in-out infinite alternate;
+  }
+  .beam-3 {
+    left: 34%;
+    width: 34vw;
+    background: radial-gradient(ellipse 50% 55% at 50% 0%, rgba(232,160,74,0.26), transparent 70%);
+    animation: sway1 21s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes sway1 { from { transform: rotate(-9deg); } to { transform: rotate(7deg); } }
+  @keyframes sway2 { from { transform: rotate(8deg); } to { transform: rotate(-6deg); } }
+
+  .hero-inner { position: relative; z-index: 2; }
+
   .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.22em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.26em;
     text-transform: uppercase;
     color: var(--amber);
-    margin: 0 0 28px;
+    margin: 0 0 26px;
     font-weight: 600;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--amber);
+    opacity: 0.7;
   }
 
   h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(2.4rem, 7vw, 4.4rem);
-    line-height: 1.08;
-    letter-spacing: -0.015em;
-    margin: 0 0 28px;
-    max-width: 16ch;
+    font-size: clamp(2.6rem, 8.4vw, 5.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 30px;
+    max-width: 15ch;
   }
-  h1 em {
+  h1 .glow {
     font-style: italic;
-    color: var(--amber);
+    background: linear-gradient(102deg, var(--amber) 0%, var(--amber-lt) 55%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .lede {
-    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    font-size: clamp(1.06rem, 2.1vw, 1.32rem);
     color: var(--cream-dim);
-    max-width: 46ch;
-    margin: 0 0 56px;
+    max-width: 47ch;
+    margin: 0 0 42px;
   }
 
-  /* ---- What you can make here ---- */
-  .uses {
-    border-top: 1px solid var(--line);
-    margin: 0 0 44px;
-    padding: 0;
-    list-style: none;
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+
+  .scroll-cue {
+    margin: 60px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-mut);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
   }
-  .uses li {
-    border-bottom: 1px solid var(--line);
-    padding: 22px 0;
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-  }
-  .uses .num {
-    font-family: var(--display);
-    font-size: 13px;
-    color: var(--cream-faint);
-    min-width: 28px;
-    font-variant-numeric: tabular-nums;
-  }
-  .uses .name {
-    font-family: var(--display);
-    font-size: clamp(1.25rem, 3.4vw, 1.75rem);
-    line-height: 1.25;
-  }
-  .uses .note {
+  .scroll-cue span {
     display: block;
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    color: var(--cream-faint);
-    margin-top: 4px;
+    width: 1px; height: 26px;
+    background: linear-gradient(var(--cream-mut), transparent);
+    animation: drop 2.1s ease-in-out infinite;
   }
+  @keyframes drop { 0%,100% { transform: scaleY(0.5); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
 
-  .and-more {
-    color: var(--cream-faint);
-    font-size: 0.98rem;
-    margin: 0 0 52px;
-    font-style: italic;
-  }
-
-  /* ---- CTA ---- */
-  .cta {
+  /* ============ Buttons ============ */
+  .btn {
     display: inline-flex;
     align-items: center;
     gap: 11px;
-    background: var(--wa);
-    color: #06251a;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     padding: 15px 30px;
     border-radius: 999px;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.24);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
-  .cta:hover, .cta:focus-visible {
+  .btn-wa {
+    background: var(--wa);
+    color: #052b1c;
+    box-shadow: 0 8px 28px rgba(37,211,102,0.26);
+  }
+  .btn-wa:hover, .btn-wa:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.34);
+    box-shadow: 0 14px 36px rgba(37,211,102,0.36);
   }
-  .cta:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
-  .wa-mark {
-    width: 21px;
-    height: 21px;
-    fill: currentColor;
+  .btn:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+  .wa-mark { width: 21px; height: 21px; fill: currentColor; flex-shrink: 0; }
+
+  .btn-ghost {
+    color: var(--cream-dim);
+    text-decoration: none;
+    font-size: 0.97rem;
+    border-bottom: 1px solid var(--line-lt);
+    padding-bottom: 2px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .btn-ghost:hover { color: var(--cream); border-color: var(--amber); }
+
+  /* ============ Marquee ============ */
+  .marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--ink-2);
+    padding: 16px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+  .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 34px;
+    animation: slide 34s linear infinite;
+    will-change: transform;
+  }
+  .marquee-track span {
+    font-family: var(--display);
+    font-size: 0.98rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream-mut);
     flex-shrink: 0;
   }
+  .marquee-track .dot { color: var(--amber); font-size: 0.7rem; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  .cta-note {
-    margin: 18px 0 0;
-    font-size: 0.92rem;
-    color: var(--cream-faint);
+  /* ============ Sections ============ */
+  section { position: relative; z-index: 2; }
+  .band { padding: 92px 0; }
+
+  .sec-head { margin: 0 0 52px; }
+  .sec-kicker {
+    font-size: 11px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 14px;
+    font-weight: 600;
   }
-  .cta-note a { color: var(--cream-dim); }
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.6vw, 3rem);
+    line-height: 1.13;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 20ch;
+  }
 
-  /* ---- Footer ---- */
-  footer {
+  /* ============ Format cards ============ */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+    gap: 20px;
+  }
+  .card {
     position: relative;
-    z-index: 1;
+    background: linear-gradient(168deg, var(--ink-2), var(--ink));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 34px 28px 30px;
+    overflow: hidden;
+    transition: transform .3s cubic-bezier(.2,.7,.3,1), border-color .3s ease;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: -1px -1px auto -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .card:hover { transform: translateY(-6px); border-color: var(--line-lt); }
+  .card:hover::before { opacity: 0.85; }
+
+  .card-ico {
+    width: 46px; height: 46px;
+    margin-bottom: 22px;
+    stroke: var(--amber);
+    fill: none;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .card h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .card p { margin: 0; color: var(--cream-mut); font-size: 0.95rem; }
+
+  .aside-note {
+    margin: 34px 0 0;
+    color: var(--cream-mut);
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  /* ============ Closing CTA ============ */
+  .closer {
     border-top: 1px solid var(--line);
-    padding: 26px 0 36px;
+    background:
+      radial-gradient(ellipse 70% 130% at 50% 0%, rgba(232,160,74,0.11), transparent 70%),
+      var(--ink);
+    text-align: center;
+    padding: 96px 0 100px;
+  }
+  .closer h2 { margin: 0 auto 18px; max-width: 18ch; }
+  .closer p.sub {
+    color: var(--cream-dim);
+    max-width: 44ch;
+    margin: 0 auto 38px;
+  }
+  .closer .btn { margin-inline: auto; }
+  .closer .fallback {
+    margin: 22px 0 0;
+    font-size: 0.92rem;
+    color: var(--cream-mut);
+  }
+  .closer .fallback a { color: var(--cream-dim); }
+
+  /* ============ Footer ============ */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 34px;
     font-size: 0.85rem;
-    color: var(--cream-faint);
+    color: var(--cream-mut);
     display: flex;
     flex-wrap: wrap;
     gap: 8px 20px;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
   }
   footer p { margin: 0; }
 
-  @media (max-width: 560px) {
-    header { padding-top: 30px; }
-    main { padding: 48px 0 48px; }
-    .uses li { gap: 14px; padding: 18px 0; }
-    .cta { width: 100%; justify-content: center; }
+  /* ============ Sticky mobile CTA ============ */
+  .dock {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 60;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(transparent, rgba(14,11,10,0.94) 32%);
+    display: none;
+  }
+  .dock .btn { width: 100%; justify-content: center; }
+
+  /* ============ Reveal ============ */
+  .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+  .rv.in { opacity: 1; transform: none; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 720px) {
+    .band { padding: 70px 0; }
+    .hero { min-height: 88vh; padding: 44px 0 56px; }
+    .beam { width: 78vw; }
+    .nav-loc { display: none; }
+    .dock { display: block; }
+    body { padding-bottom: 76px; }
+    .closer { padding: 76px 0 80px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .cta { transition: none; }
-    .cta:hover, .cta:focus-visible { transform: none; }
+    html { scroll-behavior: auto; }
+    .beam, .marquee-track, .scroll-cue span { animation: none !important; }
+    .rv { opacity: 1; transform: none; transition: none; }
+    .btn, .card { transition: none; }
+    .btn:hover, .card:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="lights" aria-hidden="true">
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+    <div class="beam beam-3"></div>
+  </div>
 
-  <header>
-    <p class="wordmark">House <span class="of">of</span> Shaily</p>
-  </header>
+  <div class="shell">
+    <nav class="nav">
+      <p class="wordmark">House <span class="of">of</span> Shaily</p>
+      <p class="nav-loc">Bangalore</p>
+    </nav>
+  </div>
 
-  <main>
-    <p class="eyebrow">Bangalore</p>
+  <div class="shell hero-inner">
+    <p class="eyebrow">A room for making things</p>
 
-    <h1>We have a space. <em>Bring what you want to make.</em></h1>
+    <h1>We have a space. <span class="glow">Bring what you want to make.</span></h1>
 
     <p class="lede">
-      A room for the things that only work when people show up in person —
-      whether you're running a night, teaching a room, or rehearsing something new.
+      For the things that only work when people show up in person — whether you're
+      running a night, teaching a room, or rehearsing something that isn't finished yet.
     </p>
 
-    <ol class="uses">
-      <li>
-        <span class="num">01</span>
-        <span class="name">Comedy club
-          <span class="note">Open mics, showcases, test nights for new material</span>
-        </span>
-      </li>
-      <li>
-        <span class="num">02</span>
-        <span class="name">Dance choreography
-          <span class="note">Rehearsals, classes, practice sessions</span>
-        </span>
-      </li>
-      <li>
-        <span class="num">03</span>
-        <span class="name">Theatre workshops
-          <span class="note">Readings, training, devising and staging</span>
-        </span>
-      </li>
-    </ol>
+    <div class="hero-actions">
+      <!-- WhatsApp: +91 91109 75470 -->
+      <a class="btn btn-wa" href="https://wa.me/919110975470?text=Hi%20House%20of%20Shaily%2C%20I%27d%20like%20to%20enquire%20about%20using%20the%20space.%0A%0AEvent%20type%3A%20%0APreferred%20date%3A%20%0AApprox.%20headcount%3A%20" target="_blank" rel="noopener">
+        <svg class="wa-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        Enquire on WhatsApp
+      </a>
+      <a class="btn-ghost" href="#formats">See what fits &darr;</a>
+    </div>
 
-    <p class="and-more">…and most things adjacent. If you're not sure it fits, ask.</p>
-
-    <!-- WhatsApp: +91 91109 75470 -->
-    <a class="cta" href="https://wa.me/919110975470?text=Hi%20House%20of%20Shaily%2C%20I%27d%20like%20to%20enquire%20about%20using%20the%20space.%0A%0AEvent%20type%3A%20%0APreferred%20date%3A%20%0AApprox.%20headcount%3A%20" target="_blank" rel="noopener">
-      <svg class="wa-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/>
-      </svg>
-      Enquire on WhatsApp
-    </a>
-
-    <p class="cta-note">
-      Prefer email? <a href="mailto:hello@houseofshaily.com">hello@houseofshaily.com</a>
-    </p>
-    <!-- TODO: add Instagram handle here once confirmed -->
-  </main>
-
+    <p class="scroll-cue"><span aria-hidden="true"></span> Scroll</p>
+  </div>
 </div>
 
-<div class="wrap">
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Comedy nights</span><span class="dot">&#10022;</span>
+    <span>Dance rehearsals</span><span class="dot">&#10022;</span>
+    <span>Theatre workshops</span><span class="dot">&#10022;</span>
+    <span>Open mics</span><span class="dot">&#10022;</span>
+    <span>Readings</span><span class="dot">&#10022;</span>
+    <span>Choreography</span><span class="dot">&#10022;</span>
+    <span>Comedy nights</span><span class="dot">&#10022;</span>
+    <span>Dance rehearsals</span><span class="dot">&#10022;</span>
+    <span>Theatre workshops</span><span class="dot">&#10022;</span>
+    <span>Open mics</span><span class="dot">&#10022;</span>
+    <span>Readings</span><span class="dot">&#10022;</span>
+    <span>Choreography</span><span class="dot">&#10022;</span>
+  </div>
+</div>
+
+<!-- ============ FORMATS ============ -->
+<section class="band" id="formats">
+  <div class="shell">
+    <div class="sec-head rv">
+      <p class="sec-kicker">What people make here</p>
+      <h2>Three things it's built for, and plenty it isn't.</h2>
+    </div>
+
+    <div class="cards">
+      <article class="card rv">
+        <svg class="card-ico" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="12" y="3" width="8" height="15" rx="4"/>
+          <path d="M8 15a8 8 0 0 0 16 0"/>
+          <path d="M16 23v6"/><path d="M11 29h10"/>
+        </svg>
+        <h3>Comedy club</h3>
+        <p>Open mics, showcases, and the nights where you test material that might not land yet.</p>
+      </article>
+
+      <article class="card rv">
+        <svg class="card-ico" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="18" cy="6" r="3"/>
+          <path d="M18 9.5c-1 3-3.5 4.5-6.5 5"/>
+          <path d="M18 9.5c1.5 2 2.5 3.5 5 4"/>
+          <path d="M18 14l-2.5 6"/>
+          <path d="M15.5 20l-5 8"/>
+          <path d="M15.5 20l5.5 8"/>
+        </svg>
+        <h3>Dance choreography</h3>
+        <p>Rehearsal time, classes and practice — room to repeat a sequence until it's right.</p>
+      </article>
+
+      <article class="card rv">
+        <svg class="card-ico" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 7h11v9a5.5 5.5 0 0 1-11 0z"/>
+          <path d="M7 11.5h1.5M11 11.5h1.5"/>
+          <path d="M7.5 18c1.4 1.2 3.2 1.2 4.5 0"/>
+          <path d="M17 7h11v9a5.5 5.5 0 0 1-11 0z"/>
+          <path d="M20 11.5h1.5M24 11.5h1.5"/>
+          <path d="M20.5 19c1.4-1.2 3.2-1.2 4.5 0"/>
+        </svg>
+        <h3>Theatre workshops</h3>
+        <p>Readings, training, devising and staging — from first table-read to dress run.</p>
+      </article>
+    </div>
+
+    <p class="aside-note rv">…and most things adjacent. If you're not sure it fits, just ask.</p>
+  </div>
+</section>
+
+<!-- ============ CLOSER ============ -->
+<section class="closer">
+  <div class="shell">
+    <div class="rv">
+      <p class="sec-kicker">Tell us what you're planning</p>
+      <h2>The room is yours.</h2>
+      <p class="sub">
+        Send a message with what you're making, roughly when, and how many people.
+        We'll tell you straight away whether it works.
+      </p>
+
+      <a class="btn btn-wa" href="https://wa.me/919110975470?text=Hi%20House%20of%20Shaily%2C%20I%27d%20like%20to%20enquire%20about%20using%20the%20space.%0A%0AEvent%20type%3A%20%0APreferred%20date%3A%20%0AApprox.%20headcount%3A%20" target="_blank" rel="noopener">
+        <svg class="wa-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        Enquire on WhatsApp
+      </a>
+
+      <p class="fallback">Prefer email? <a href="mailto:hello@houseofshaily.com">hello@houseofshaily.com</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
   <footer>
     <p>House of Shaily — Bangalore, India</p>
     <p>&copy; 2026</p>
   </footer>
 </div>
+
+<!-- Sticky CTA, mobile only -->
+<div class="dock">
+  <a class="btn btn-wa" href="https://wa.me/919110975470?text=Hi%20House%20of%20Shaily%2C%20I%27d%20like%20to%20enquire%20about%20using%20the%20space.%0A%0AEvent%20type%3A%20%0APreferred%20date%3A%20%0AApprox.%20headcount%3A%20" target="_blank" rel="noopener">
+    <svg class="wa-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+    Enquire on WhatsApp
+  </a>
+</div>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window)) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+  els.forEach(function (el, i) {
+    el.style.transitionDelay = (Math.min(i, 4) * 70) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
 
 </body>
 </html>
